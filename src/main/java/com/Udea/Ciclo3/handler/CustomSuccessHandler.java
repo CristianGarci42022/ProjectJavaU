@@ -1,4 +1,4 @@
-package com.Udea.Ciclo3.handler;
+/*package com.Udea.Ciclo3.handler;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -68,4 +68,4 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         }
         return false;
     }
-}
+}*/

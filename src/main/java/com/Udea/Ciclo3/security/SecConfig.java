@@ -1,4 +1,4 @@
-package com.Udea.Ciclo3.security;
+/*package com.Udea.Ciclo3.security;
 
 
 import com.Udea.Ciclo3.handler.CustomSuccessHandler;
@@ -47,4 +47,4 @@ public class SecConfig extends WebSecurityConfigurerAdapter {
                 .and().logout().permitAll();
 
     }
-}
+}*/

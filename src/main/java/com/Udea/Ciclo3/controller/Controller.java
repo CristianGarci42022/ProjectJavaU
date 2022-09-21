@@ -31,7 +31,7 @@ public class Controller {
 
     //Autowired
     @Autowired
-    EnterpriseService empresaService;
+    EnterpriseService enterpriseService;
 
     @Autowired
     TransactionService transactionService;
@@ -46,7 +46,7 @@ public class Controller {
     //EMPRESAS
     @GetMapping({"/","ViewEnterprises"})
     public String viewEnterprises(Model model,@ModelAttribute("mensaje")String mensaje){
-        List<Enterprise>listaEmpresas=empresaService.getALLEmpresas();
+        List<Enterprise>listaEmpresas=enterpriseService.getALLEmpresas();
         model.addAttribute("emplist",listaEmpresas);
         model.addAttribute("mensaje",mensaje);
         return "ViewEnterprises";//llamamos al HTML
@@ -64,7 +64,7 @@ public class Controller {
 
     @PostMapping("/SaveEnterprise")
     public String SaveEnterprise(Enterprise emp, RedirectAttributes redirectAttributes){
-        if (empresaService.saveOrUpdateEmpresa(emp)==true){
+        if (enterpriseService.saveOrUpdateEmpresa(emp)==true){
             redirectAttributes.addFlashAttribute("mensaje","saveOK");
         }
         redirectAttributes.addFlashAttribute("mensaje","saveError");
@@ -73,7 +73,7 @@ public class Controller {
 
     @GetMapping("/EditEnterprise/{id}")
     public String EditEnterprise(Model model,@PathVariable Long id, @ModelAttribute("mensaje")String mensaje){
-        Enterprise emp =empresaService.getEmpresaById(id);
+        Enterprise emp =enterpriseService.getEmpresaById(id);
         //creamos el atributo para el modelo que se llame igualmente emp y es el que ira al HTML para llenar o alimentar campos
         model.addAttribute("emp",emp);
         model.addAttribute("mensaje",mensaje);
@@ -82,7 +82,7 @@ public class Controller {
 
     @PostMapping("/ToUpdateEnterprise")
     public String ToUpdateEnterprise(@ModelAttribute("emp")Enterprise emp,RedirectAttributes redirectAttributes){
-        if(empresaService.saveOrUpdateEmpresa(emp)){
+        if(enterpriseService.saveOrUpdateEmpresa(emp)){
             redirectAttributes.addFlashAttribute("mensaje","updateOK");
             return "redirect:/ViewEnterprises";
         }
@@ -92,7 +92,7 @@ public class Controller {
 
     @GetMapping ("/DeleteEnterprise/{id}")
     public String DeleteEnterprise(@PathVariable Long id, RedirectAttributes redirectAttributes){
-        if (empresaService.deleteEmpresa(id)==true){
+        if (enterpriseService.deleteEmpresa(id)==true){
             redirectAttributes.addFlashAttribute("mensaje","deleteOK");
             return "redirect:/ViewEnterprises";
         }
@@ -116,7 +116,7 @@ public class Controller {
         Employee empl = new Employee();
         model.addAttribute("empl",empl);
         model.addAttribute("mensaje",mensaje);
-        List<Enterprise>listaEmpresas = empresaService.getALLEmpresas();
+        List<Enterprise>listaEmpresas = enterpriseService.getALLEmpresas();
         model.addAttribute("emprelist",listaEmpresas);
         return"AddEmployee";//llamar al HTMl
     }
@@ -140,7 +140,7 @@ public class Controller {
         //creamos un atributo para el modelo, que se llama igualmente emp y es el que ira al html para llenar o alimentar campos
         model.addAttribute("empl",empl);
         model.addAttribute("mensaje",mensaje);
-        List<Enterprise>listaEmpresas=empresaService.getALLEmpresas();
+        List<Enterprise>listaEmpresas=enterpriseService.getALLEmpresas();
         return "EditEmployee";
     }
 
