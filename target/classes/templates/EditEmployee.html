@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM6exOGMYYRNMuybNXmRAXuLG7XaSnTaTNgvlgIeXpJw&s">
+    <link rel="icon" href="https://png.pngtree.com/png-clipart/20210723/ourlarge/pngtree-mask-hacker-computer-icon-png-image_3665405.jpg">
     <title>Editar Empleado</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,13 +27,13 @@
 <body>
 
 <div class="container">
-    <!--<p th:inline="text" class="text-right">Bienvenido: [[${#httpServletRequest.remoteUser}]]</p>-->
-    <p th:inline="text" class="text-right">Bienvenido: Pepito Perez</p>
-    <p th:inline="text" class="text-right">Rol Actual: Administador</p>
+
+
     <button type="button" class="btn btn-danger" style="float:right"><a th:href="@{/logout}">Cerrar Sesión</a></button>
+    <p th:inline="text" class="text-right">User: [[${#httpServletRequest.remoteUser}]]</p>
     <nav>
         <center>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM6exOGMYYRNMuybNXmRAXuLG7XaSnTaTNgvlgIeXpJw&s"
+            <img src="https://png.pngtree.com/png-clipart/20210723/ourlarge/pngtree-mask-hacker-computer-icon-png-image_3665405.jpg"
                  width="140" height="140" alt="">
         </center>
     </nav>
@@ -85,10 +85,10 @@
         <!--Campo para empresa-->
         <div class="row">
             <div class="form-group col-md-12">
-                <label class="col-md-3" for="enterprise">Empresa a la que pertence:</label>
+                <label class="col-md-3" for="enterprise">Empresa a la que pertenece:</label>
                 <div class="col-md-6">
                     <select th:field="*{enterprise}" class="form-control" id="enterprise" required="required">
-                        <option th:each="enterprise : ${emprelist}" th:text="${enterprise.name}" th:value="${enterprise.id}"></option>
+                        <option th:each="enterprise:${emprelist}" th:text="${enterprise.name}" th:value="${enterprise.id}"></option>
                     </select>
                 </div>
             </div>
@@ -126,7 +126,7 @@
     <br>
     <a href="javascript: history.go(-1)" class="btn btn-info" role="button">Atrás</a>
 
-</div><!--script para ocultar la contraseña-->
+</div><!--script para ocultar la contraseña que ingresa o actualiza el empleado-->
 <script th:inline="javascript">
   window.onload=function(){
   document.getElementById("password").type="password"}

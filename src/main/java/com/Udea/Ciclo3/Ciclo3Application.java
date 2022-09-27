@@ -3,20 +3,18 @@ package com.Udea.Ciclo3;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
 
-@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
-public class Ciclo3Application {
+@SpringBootApplication
+public class Ciclo3Application  {
 
 	@GetMapping ("/hello")
 	public String hello(){
-		return "Hola Ciclo 3... Saldremos vivos de esto!";
+		return "Hola Ciclo 3!";
 	}
-
-
 
 
 	public static void main(String[] args) {
